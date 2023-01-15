@@ -10,7 +10,10 @@ class InventoryItemPojoTest {
 
     @Test
     void initializeInventoryItem() {
+        //Arrange
         InventoryItem item = new InventoryItem("soap", BigDecimal.valueOf(10), 5);
+
+        //Assert
         Assertions.assertEquals(5, item.getQuantity());
     }
 }

@@ -1,5 +1,6 @@
 package task.supermarket.shoppingcart;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,8 +20,12 @@ public class ShoppingCart implements Cart {
         return items;
     }
 
-    public double totalCardValue() {
-        //FIXME Complete calculation logic
-        return 0.0;
+    public BigDecimal totalCardValue() {
+        return items.entrySet()
+                    .stream()
+                    .map(ent -> ent.getKey()
+                                   .getPrice()
+                                   .multiply(BigDecimal.valueOf(ent.getValue()))
+                    ).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }

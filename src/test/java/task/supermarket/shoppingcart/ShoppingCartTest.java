@@ -28,4 +28,21 @@ class ShoppingCartTest {
 
         Assertions.assertEquals(6, size);
     }
+
+    @Test
+    void shoppingCardTotalCardValueTest() {
+        //Arrange
+        ShoppingCart shoppingCart = new ShoppingCart();
+        Product apple = new Product("apple", BigDecimal.valueOf(4.5));
+        Product orange = new Product("orange", BigDecimal.valueOf(8));
+
+        //Act
+        shoppingCart.addItem(apple, 10);
+        shoppingCart.addItem(orange, 5);
+
+        //Assert
+        BigDecimal subtotal = shoppingCart.totalCardValue();
+
+        Assertions.assertEquals(BigDecimal.valueOf(85.0), subtotal);
+    }
 }

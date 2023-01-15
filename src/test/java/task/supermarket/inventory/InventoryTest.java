@@ -15,9 +15,8 @@ class InventoryTest {
         InventoryItem soap = new InventoryItem("soap", BigDecimal.valueOf(10), 5);
 
         //Act
-        Inventory inventory = new Inventory();
-        inventory.addItem(bread);
-        inventory.addItem(soap);
+        Inventory inventory = Inventory.INSTANCE;
+        inventory.addItems(bread, soap);
 
         List<InventoryItem> items = inventory.getItems();
 

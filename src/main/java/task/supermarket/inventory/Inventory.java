@@ -1,15 +1,18 @@
 package task.supermarket.inventory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Inventory {
+public enum Inventory {
+
+    INSTANCE;
 
     private final List<InventoryItem> items = new ArrayList<>();
 
-    public void addItem(InventoryItem item) {
-        this.items.add(item);
+    public void addItems(InventoryItem... inventoryItems) {
+        this.items.addAll(Arrays.asList(inventoryItems));
     }
 
     public List<InventoryItem> getItems() {

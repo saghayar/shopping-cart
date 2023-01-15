@@ -33,7 +33,7 @@ class ShoppingCartTest {
     void shoppingCardTotalCardValueTest() {
         //Arrange
         ShoppingCart shoppingCart = new ShoppingCart();
-        Product apple = new Product("apple", BigDecimal.valueOf(4.5));
+        Product apple = new Product("apple", BigDecimal.valueOf(4.52397));
         Product orange = new Product("orange", BigDecimal.valueOf(8));
 
         //Act
@@ -43,6 +43,6 @@ class ShoppingCartTest {
         //Assert
         BigDecimal subtotal = shoppingCart.totalCardValue();
 
-        Assertions.assertEquals(BigDecimal.valueOf(85.0), subtotal);
+        Assertions.assertEquals(BigDecimal.valueOf(85.24), subtotal);
     }
 }

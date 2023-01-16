@@ -31,4 +31,8 @@ public class ShoppingCart implements Cart {
                                    .round(new MathContext(4, RoundingMode.HALF_UP))
                     ).reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
+    public void checkout() {
+
+    }
 }

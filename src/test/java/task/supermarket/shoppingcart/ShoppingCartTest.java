@@ -64,12 +64,18 @@ class ShoppingCartTest {
     void calculateDiscountTest() {
         //Arrange
         ShoppingCart shoppingCart = new ShoppingCart();
-        Product pen = new Product("pen", BigDecimal.valueOf(6));
+        Product pen = new Product("pen", BigDecimal.valueOf(4.5));
         Product soap = new Product("soap", BigDecimal.valueOf(8));
         shoppingCart.addItem(pen, 10);
         shoppingCart.addItem(soap, 5);
 
+        Offer buyTwoGetOneFree = new BuyTwoGetOneFreeOffer();
+        buyTwoGetOneFree.apply(shoppingCart, pen.getName());
+
         //Act
-        BigDecimal discount = shoppingCart.calculateDiscount();
+        BigDecimal result = shoppingCart.calculateDiscount();
+
+        //Assert
+        Assertions.assertEquals(BigDecimal.valueOf(13.5), result);
     }
 }

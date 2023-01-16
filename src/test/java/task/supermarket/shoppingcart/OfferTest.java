@@ -22,7 +22,7 @@ class OfferTest {
         offer.apply(shoppingCart, itemName);
 
         //Assert
-        Map<String, OfferCodes> offers = shoppingCart.getOffers();
-        Assertions.assertSame(OfferCodes.BUY_2_GET_1_FREE, offers.get(itemName));
+        Map<String, OfferStrategy> offers = shoppingCart.getOffers();
+        Assertions.assertSame(OfferStrategy.BUY_2_GET_1_FREE, offers.get(itemName));
     }
 }

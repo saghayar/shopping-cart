@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ShoppingCart implements Cart {
     private final Map<CartItem, Integer> items = new HashMap<>();
-    private final Map<String, OfferCodes> offers = new HashMap<>();
+    private final Map<String, OfferStrategy> offers = new HashMap<>();
 
     public void addItem(CartItem item, int quantity) {
         if (!items.containsKey(item))
@@ -24,7 +24,7 @@ public class ShoppingCart implements Cart {
     }
 
     @Override
-    public Map<String, OfferCodes> getOffers() {
+    public Map<String, OfferStrategy> getOffers() {
         return offers;
     }
 
@@ -40,5 +40,19 @@ public class ShoppingCart implements Cart {
 
     public void checkout() {
 
+    }
+
+    public BigDecimal calculateDiscount() {
+        BigDecimal discount = BigDecimal.ZERO;
+        for (Map.Entry<CartItem, Integer> entry : items.entrySet()) {
+            CartItem item = entry.getKey();
+            Integer quantity = entry.getValue();
+            if (offers.containsKey(item.getName())) {
+                OfferStrategy offerCode = offers.get(item.getName());
+                discount = discount.add(offerCode.execute(item, quantity));
+            }
+        }
+
+        return discount;
     }
 }

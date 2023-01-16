@@ -45,4 +45,18 @@ class ShoppingCartTest {
 
         Assertions.assertEquals(BigDecimal.valueOf(85.24), subtotal);
     }
+
+    @Test
+    void shoppingCardCheckoutItemTest() {
+        //Arrange
+        ShoppingCart shoppingCart = new ShoppingCart();
+        Product apple = new Product("apple", BigDecimal.valueOf(12));
+        Product onion = new Product("onion", BigDecimal.valueOf(1));
+
+        //Act
+        shoppingCart.addItem(apple, 10);
+        shoppingCart.addItem(onion, 5);
+        shoppingCart.checkout();
+
+    }
 }

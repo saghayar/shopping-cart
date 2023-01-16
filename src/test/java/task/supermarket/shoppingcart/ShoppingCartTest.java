@@ -30,7 +30,7 @@ class ShoppingCartTest {
     }
 
     @Test
-    void shoppingCardTotalCardValueTest() {
+    void calculateSubtotalTest() {
         //Arrange
         ShoppingCart shoppingCart = new ShoppingCart();
         Product apple = new Product("apple", BigDecimal.valueOf(4.52397));

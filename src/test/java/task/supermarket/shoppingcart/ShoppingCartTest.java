@@ -41,7 +41,7 @@ class ShoppingCartTest {
         shoppingCart.addItem(orange, 5);
 
         //Assert
-        BigDecimal subtotal = shoppingCart.totalCardValue();
+        BigDecimal subtotal = shoppingCart.subtotal();
 
         Assertions.assertEquals(BigDecimal.valueOf(85.24), subtotal);
     }

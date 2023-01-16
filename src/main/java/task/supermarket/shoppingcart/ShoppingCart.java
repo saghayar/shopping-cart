@@ -22,7 +22,7 @@ public class ShoppingCart implements Cart {
         return items;
     }
 
-    public BigDecimal totalCardValue() {
+    public BigDecimal subtotal() {
         return items.entrySet()
                     .stream()
                     .map(ent -> ent.getKey()

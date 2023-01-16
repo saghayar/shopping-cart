@@ -28,7 +28,7 @@ public class ShoppingCart implements Cart {
         return offers;
     }
 
-    public BigDecimal subtotal() {
+    public BigDecimal calculateSubtotal() {
         return items.entrySet()
                     .stream()
                     .map(ent -> ent.getKey()

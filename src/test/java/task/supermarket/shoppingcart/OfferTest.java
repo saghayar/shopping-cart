@@ -27,7 +27,7 @@ class OfferTest {
     }
 
     @Test
-    void buyTwoGetOneOfferTest() {
+    void buyOneGetHalfOffOfferTest() {
         //Arrange
         String itemName = "book";
         ShoppingCart shoppingCart = new ShoppingCart();

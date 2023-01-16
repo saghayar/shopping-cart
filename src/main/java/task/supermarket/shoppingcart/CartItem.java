@@ -7,5 +7,7 @@ public interface CartItem {
 
     BigDecimal getPrice();
 
-    void setPrice(BigDecimal price);
+    BigDecimal getDiscount();
+
+    void setDiscount(BigDecimal discount);
 }

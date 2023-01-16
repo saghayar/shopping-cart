@@ -5,12 +5,14 @@ import java.math.BigDecimal;
 public abstract class ShoppingCartItem implements CartItem {
     protected String name;
     protected BigDecimal price;
+    protected BigDecimal discount;
 
     protected ShoppingCartItem(String name, BigDecimal price) {
         this.name = name;
         this.price = price;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -19,12 +21,23 @@ public abstract class ShoppingCartItem implements CartItem {
         this.name = name;
     }
 
+    @Override
     public BigDecimal getPrice() {
         return price;
     }
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    @Override
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    @Override
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
     }
 
     @Override

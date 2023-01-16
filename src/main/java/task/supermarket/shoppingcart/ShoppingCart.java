@@ -8,6 +8,7 @@ import java.util.Map;
 
 public class ShoppingCart implements Cart {
     private final Map<CartItem, Integer> items = new HashMap<>();
+    private final Map<String, OfferCodes> offers = new HashMap<>();
 
     public void addItem(CartItem item, int quantity) {
         if (!items.containsKey(item))
@@ -20,6 +21,11 @@ public class ShoppingCart implements Cart {
 
     public Map<CartItem, Integer> getItems() {
         return items;
+    }
+
+    @Override
+    public Map<String, OfferCodes> getOffers() {
+        return offers;
     }
 
     public BigDecimal subtotal() {

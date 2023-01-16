@@ -59,4 +59,17 @@ class ShoppingCartTest {
         shoppingCart.checkout();
 
     }
+
+    @Test
+    void calculateDiscountTest() {
+        //Arrange
+        ShoppingCart shoppingCart = new ShoppingCart();
+        Product pen = new Product("pen", BigDecimal.valueOf(6));
+        Product soap = new Product("soap", BigDecimal.valueOf(8));
+        shoppingCart.addItem(pen, 10);
+        shoppingCart.addItem(soap, 5);
+
+        //Act
+        BigDecimal discount = shoppingCart.calculateDiscount();
+    }
 }

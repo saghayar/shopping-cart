@@ -5,7 +5,6 @@ import java.math.BigDecimal;
 public abstract class ShoppingCartItem implements CartItem {
     protected String name;
     protected BigDecimal price;
-    protected BigDecimal discount;
 
     protected ShoppingCartItem(String name, BigDecimal price) {
         this.name = name;
@@ -28,16 +27,6 @@ public abstract class ShoppingCartItem implements CartItem {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
-    }
-
-    @Override
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    @Override
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
     }
 
     @Override

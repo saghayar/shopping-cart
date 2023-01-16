@@ -6,8 +6,4 @@ public interface CartItem {
     String getName();
 
     BigDecimal getPrice();
-
-    BigDecimal getDiscount();
-
-    void setDiscount(BigDecimal discount);
 }

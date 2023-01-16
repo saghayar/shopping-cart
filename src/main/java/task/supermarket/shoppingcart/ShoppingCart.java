@@ -33,9 +33,9 @@ public class ShoppingCart implements Cart {
                     .stream()
                     .map(ent -> ent.getKey()
                                    .getPrice()
-                                   .multiply(BigDecimal.valueOf(ent.getValue()))
-                                   .round(new MathContext(4, RoundingMode.HALF_UP))
-                    ).reduce(BigDecimal.ZERO, BigDecimal::add);
+                                   .multiply(BigDecimal.valueOf(ent.getValue())))
+                    .reduce(BigDecimal.ZERO, BigDecimal::add)
+                    .round(new MathContext(4, RoundingMode.HALF_UP));
     }
 
     public void checkout() {

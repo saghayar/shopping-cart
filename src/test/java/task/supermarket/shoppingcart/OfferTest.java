@@ -16,7 +16,7 @@ class OfferTest {
         shoppingCart.addItem(salt, 10);
 
         Offer offer = new BuyTwoGetOneOffer();
-        offer.apply(shoppingCart);
+        offer.apply(shoppingCart, "salt");
 
         //Assert
 

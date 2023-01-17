@@ -11,12 +11,15 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static task.supermarket.shoppingcart.Messages.MISSING_INVENTORY_FILE;
 import static task.supermarket.shoppingcart.Messages.SPLIT_BY;
 
 public class Main {
+    public static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     public static void main(String[] args) throws IOException {
         Inventory inventory = Inventory.INSTANCE;
@@ -25,6 +28,11 @@ public class Main {
 
         String pathToInventoryFile = parseArgs(args, 0);
         String pathToCommandsFile = parseArgs(args, 1);
+
+        if (pathToInventoryFile == null) {
+            print(MISSING_INVENTORY_FILE);
+            return;
+        }
 
         buildInventory(pathToInventoryFile);
 
@@ -69,5 +77,9 @@ public class Main {
             result = lines.collect(Collectors.toList());
         }
         return result;
+    }
+
+    private static void print(String message) {
+        LOGGER.info(message);
     }
 }

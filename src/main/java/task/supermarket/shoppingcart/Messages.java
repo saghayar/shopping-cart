@@ -13,4 +13,5 @@ public class Messages {
     public static final String BILL = "subtotal:%s, discount:%s, total:%s";
     public static final String INVALID_COMMAND = "Invalid command";
     public static final String EMPTY_CARD = "empty cart";
+    public static final String MISSING_INVENTORY_FILE = "Inventory file is not provided";
 }

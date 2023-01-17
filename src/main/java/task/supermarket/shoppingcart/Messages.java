@@ -1,6 +1,10 @@
 package task.supermarket.shoppingcart;
 
 public class Messages {
+
+    private Messages() {
+    }
+
     public static final String SPLIT_BY = ",";
     public static final String NO_PRODUCT_EXIST = "No product exist in inventory with name %s \n";
     public static final String ITEM_ADDED = "added %s %s";

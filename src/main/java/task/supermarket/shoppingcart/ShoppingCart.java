@@ -9,6 +9,7 @@ import java.util.Map;
 public class ShoppingCart implements Cart {
     private final Map<CartItem, Integer> items = new HashMap<>();
     private final Map<String, OfferStrategy> offers = new HashMap<>();
+    private boolean checkedOut;
 
     public void addItem(CartItem item, int quantity) {
         if (!items.containsKey(item))
@@ -39,7 +40,11 @@ public class ShoppingCart implements Cart {
     }
 
     public void checkout() {
+        this.checkedOut = true;
+    }
 
+    public boolean isCheckedOut() {
+        return checkedOut;
     }
 
     public BigDecimal calculateDiscount() {

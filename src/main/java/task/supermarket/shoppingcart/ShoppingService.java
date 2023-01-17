@@ -5,6 +5,9 @@ import task.supermarket.inventory.InventoryItem;
 
 import java.math.BigDecimal;
 import java.util.Locale;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static java.lang.String.format;
 import static task.supermarket.shoppingcart.Messages.BILL;
@@ -16,6 +19,16 @@ import static task.supermarket.shoppingcart.Messages.NO_PRODUCT_EXIST;
 import static task.supermarket.shoppingcart.Messages.OFFER_ADDED;
 
 public class ShoppingService {
+    public static final Logger LOGGER = Logger.getLogger(ShoppingService.class.getName());
+
+    static {
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setFormatter(new MyLogFormatter());
+        handler.setLevel(Level.ALL);
+        LOGGER.addHandler(handler);
+        LOGGER.setUseParentHandlers(false);
+    }
+
     private final ShoppingCart shoppingCart;
     private final Inventory inventory;
 
@@ -57,8 +70,8 @@ public class ShoppingService {
                 if (shoppingCart.getItems().isEmpty()) {
                     print(EMPTY_CARD);
                 } else {
+                    shoppingCart.checkout();
                     print(DONE);
-                    exit();
                 }
                 break;
             default:
@@ -68,11 +81,6 @@ public class ShoppingService {
     }
 
     private void print(String message) {
-        System.out.println(message);
-    }
-
-
-    private void exit() {
-        System.exit(0);
+        LOGGER.info(message);
     }
 }

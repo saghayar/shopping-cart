@@ -23,8 +23,8 @@ public class Main {
         final ShoppingCart cart = new ShoppingCart();
         final ShoppingService shoppingService = new ShoppingService(cart, inventory);
 
-        String pathToInventoryFile = args[0];
-        String pathToCommandsFile = args[1];
+        String pathToInventoryFile = parseArgs(args, 0);
+        String pathToCommandsFile = parseArgs(args, 1);
 
         buildInventory(pathToInventoryFile);
 
@@ -34,6 +34,10 @@ public class Main {
             proceedToInteractiveMode(shoppingService, cart);
         }
 
+    }
+
+    private static String parseArgs(String[] args, int i) {
+        return args.length > i ? args[i] : null;
     }
 
     private static void proceedToFileMode(ShoppingService shoppingService,

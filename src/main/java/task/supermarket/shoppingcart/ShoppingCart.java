@@ -58,6 +58,6 @@ public class ShoppingCart implements Cart {
             }
         }
 
-        return discount;
+        return discount.round(new MathContext(4, RoundingMode.HALF_UP));
     }
 }

@@ -31,44 +31,85 @@ prompt, where the actions can be typed in;
 and the commands in it executed one by one.
 In both cases, the commands are separated by a new line. If two offers are applied at
 the same product, only the more recent one stands.
+
 Interactive mode
+
 $ ./supermarket inventory.csv
+
 $ checkout
+
 empty cart
+
 $ add soap 5
+
 added soap 5
+
 $ add bread 1
+
 added bread 1
+
 $ bill
+
 subtotal:52.50, discount:0.00, total:52.50
+
 $ offer buy_2_get_1_free soap
+
 offer added
+
 $ bill
+
 subtotal:52.50, discount:10.00, total:42.50
+
 $ add soap 1
+
 added soap 1
+
 $ bill
+
 subtotal:62.50, discount:20.00, total:42.50
+
 $ offer buy_1_get_half_off bread
+
 offer added
+
 $ add bread 1
+
 added bread 1
+
 $ bill
+
 subtotal:65.00, discount:21.25, total:43.75
+
 $ checkout
+
 done
+
+
 File mode
 $ cat commands.txt
+
 checkout
+
 add soap 5
+
 add bread 1
+
 bill
+
 offer buy_2_get_1_free soap
+
 bill
+
 add soap 1
+
 bill
+
 offer buy_1_get_half_off bread
+
 add bread 1
+
 bill
+
 checkout
+
 $ ./supermarket inventory.csv commands.txt

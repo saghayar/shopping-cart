@@ -11,11 +11,16 @@ The inventory is a list of available items, the unit price, and their quantities
 values are loaded from a file. The file needs to be specified as an input when running
 the program.
 Each row should have the following format:
+```
 <product_name>,<amount>,<quantity>
+
+```
 Ex.
+```
 inventory.csv
 soap,10.00,100
 bread,2.50,10
+```
 Note: You are not expected to update values in the file during runtime.
 Offers
 Your shopping cart should support the following offers:
@@ -33,7 +38,7 @@ In both cases, the commands are separated by a new line. If two offers are appli
 the same product, only the more recent one stands.
 
 Interactive mode
-
+```
 $ ./supermarket inventory.csv
 
 $ checkout
@@ -83,9 +88,11 @@ subtotal:65.00, discount:21.25, total:43.75
 $ checkout
 
 done
+```
 
 
 File mode
+```
 $ cat commands.txt
 
 checkout
@@ -113,3 +120,4 @@ bill
 checkout
 
 $ ./supermarket inventory.csv commands.txt
+```
